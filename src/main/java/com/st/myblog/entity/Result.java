@@ -12,23 +12,20 @@ public class Result {
     private String msg;
     private Object data;
 
+
     public static Result succ(Object data) {
-
-        Result result = new Result();
-        result.setCode(0);
-        result.setMsg("操作成功");
-        result.setData(data);
-        return result;
-
+        return succ(200, "操作成功", data);
     }
 
-    public static Result succ(String mess, Object data) {
-        Result m = new Result();
-        m.setCode(0);
-        m.setData(data);
-        m.setMsg(mess);
-        return m;
+
+    public static Result succ(int code, String msg, Object data) {
+        Result r = new Result();
+        r.setCode(code);
+        r.setMsg(msg);
+        r.setData(data);
+        return r;
     }
+
     public static Result fail(String mess) {
         Result m = new Result();
         m.setCode(-1);
